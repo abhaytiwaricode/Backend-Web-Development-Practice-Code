@@ -1,0 +1,81 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 450px;
+  margin: 16px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  color: #0056b3;
+  margin-top: 0%;
+}
+
+a {
+  background-color: #007bff;
+  color: #fff;
+  padding: 4px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+a:hover {
+  background-color: #0056b3;
+}
+
+.post {
+  background-color: #007bff;
+  border-radius: 4px;
+}
+
+.username {
+  color: #fff;
+  padding: 10px;
+}
+
+button {
+  padding: 6px 8px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  border: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.user a,
+.user button { 
+  display: inline-flex;
+  justify-content: space-between;
+  margin: 4px 5px;
+  margin-bottom: 8px;
+}
+
+.user p {
+  padding-top: 0%;
+  margin-top: 0%;
+}
+
+.content {
+  color: #fff;
+  padding: 6px;
+  margin: 6px;
+  font-size: medium;
+  font-family: "Segoe UI", sans-serif;
+  width: fit-content;
+}
+
+.container {
+  max-height: 515px;
+  max-width: 450px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}

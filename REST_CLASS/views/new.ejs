@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create New Post</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 450px;
+        margin: 16px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+
+      h1 {
+        color: #0056b3;
+      }
+
+      .username-input,
+      .content-input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+
+      textarea {
+        resize: vertical;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/posts" method="post">
+      <h1>New Post :)</h1>
+      <input
+        type="text"
+        placeholder="enter username"
+        name="username"
+        class="username-input"
+      />
+      <br />
+      <br />
+      <textarea
+        name="content"
+        placeholder="write your post"
+        class="content-input"
+        rows="20"
+      ></textarea>
+      <br />
+      <button>Submit Post</button>
+    </form>
+  </body>
+</html>

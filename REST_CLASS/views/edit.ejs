@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Your Post</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 450px;
+        margin: 16px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+
+      h1 {
+        color: #0056b3;
+        margin-top: 0%;
+      }
+
+      h4 {
+        color: #fff;
+        background-color: #007bff;
+        padding: 5px 10px;
+        border-radius: 4px;
+      }
+
+      .username-input,
+      .content-input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        border-radius: 4px; /* Added border-radius */
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Added box-shadow */
+      }
+
+      textarea {
+        resize: vertical;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Edit Your Post :)</h1>
+      <h4>Post id: <%= post.id %></h4>
+      <h4 class="username">Post username: @<%= post.username %></h4>
+      <form method="POST" action="/posts/<%= post.id %>?_method=PATCH">
+        <textarea
+          name="content"
+          placeholder="write your post"
+          class="content-input"
+          rows="20"
+        >
+        <%= post.content %></textarea
+        >
+        <br />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

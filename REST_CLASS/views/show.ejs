@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 450px;
+        margin: 16px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+
+      h1 {
+        color: #0056b3;
+        margin-top: 0%;
+      }
+
+      h4 {
+        color: #fff;
+        background-color: #007bff;
+        padding: 5px 10px;
+        border-radius: 4px;
+      }
+
+      a {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      a:hover {
+        background-color: #0056b3;
+      }
+
+      .post {
+        background-color: #007bff;
+        border-radius: 4px;
+      }
+
+      .username {
+        color: #fff;
+        padding: 10px;
+      }
+
+      .content {
+        color: #fff;
+        padding: 6px;
+        margin: 6px;
+        font-size: medium;
+        font-family: "Segoe UI", sans-serif;
+        width: fit-content;
+      }
+    </style>
+    <title>Post in Detail</title>
+  </head>
+  <body>
+    <h1>Here is your post in detail :)</h1>
+    <h4>Post id: <%= post.id %></h4>
+    <div class="post">
+      <h4 class="username">@<%= post.username %></h4>
+      <p class="content"><%= post.content %></p>
+    </div>
+  </body>
+</html>
