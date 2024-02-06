@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User's Detail Page</title>
+    <style>
+      body {
+        font-family: 'poppins', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 88%;
+        margin: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        background-color: #fff;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #0066ff;
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      tr:hover {
+        background-color: #ddd;
+      }
+
+      button {
+        display: inline-block;
+        padding: 10px 16px;
+        background-color: #0066ff;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        margin: 2px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+        border: none;
+      }
+
+      button:hover {
+        background-color: #004080;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>User's Detail</h2>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Edit Username</th>
+      </tr>
+      <% for(user of users) { %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.email %></td>
+        <td><%= user.username %></td>
+        <td>
+          <form action="/user/<%= user.id %>/edit" method="GET">
+            <button>Edit username</button>
+          </form>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+  </body>
+</html>
