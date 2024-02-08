@@ -15,3 +15,37 @@ const userSchema = new mongoose.Schema ({
   email: String,
   age: Number,
 });
+
+const User = mongoose.model("User", userSchema);
+
+User.insertMany([
+  {
+    name: "rajnish",
+    email: "rajnish@abhaytiwaricode.in",
+    age: 19,
+  },
+  {
+    name: "yash",
+    email: "yash@abhaytiwaricode.in",
+    age: 19,
+  },{
+    name: "umesh",
+    email: "umesh@abhaytiwaricode.in",
+    age: 19,
+  },
+]).then((res) => {
+  console.log(res);
+});
+
+// const user2 = new User({
+//   name: "sandeep",
+//   email: "sandeep@abhaytiwaricode.in",
+//   age: 19,
+// });
+
+// user2.save().then(res => {
+//   console.log(res);
+// })
+// .catch(err => {
+//   console.log(err);
+// });
