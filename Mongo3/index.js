@@ -72,8 +72,27 @@ app.put('/chats/:id', async (req, res) => {
   res.redirect('/chats');
 });
 
+// Delete Route
+app.delete('/chats/:id', async (req, res) => {
+  let { id } = req.params;
+  res.render('confirmDelete.ejs', { id });
+});
+
+// Confirm Delete Route
+app.post('/chats/:id/delete', async (req, res) => {
+  let { id } = req.params;
+  let confirmDelete = req.body.confirmDelete;
+
+  if (confirmDelete === 'yes') {
+    let deletedChat = await Chat.findByIdAndDelete(id);
+    console.log(deletedChat);
+  }
+  res.redirect('/chats');
+});
+
+
 app.get('/', (req, res) => {
-  res.send('working root');
+  res.redirect('/chats');
 });
 
 app.listen(8080, () => {
