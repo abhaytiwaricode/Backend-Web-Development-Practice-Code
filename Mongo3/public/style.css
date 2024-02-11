@@ -53,6 +53,8 @@ button:hover {
 
 .msg p {
   margin: 0;
+  font-weight: 500;
+  color: #333;
 }
 
 .from {
@@ -63,6 +65,12 @@ button:hover {
 .to {
   color: #007bff;
   font-weight: bold;
+}
+
+.date {
+  color:#333;
+  font-weight: 500;
+  font-size: small;
 }
 
 hr {

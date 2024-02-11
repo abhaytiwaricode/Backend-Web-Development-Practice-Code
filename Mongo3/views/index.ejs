@@ -20,6 +20,8 @@
         </div>
         <p class="to">Received by: <%= chat.to %></p>
         <hr />
+        <p class="to date"><%= chat.created_at.toString().split(" ").slice(0, 4).join("-") %></p>
+        <p class="to date"><%= chat.created_at.toString().split(" ")[4] %></p>
       </div>
       <% } %>
     </div>
