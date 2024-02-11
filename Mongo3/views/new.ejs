@@ -1,16 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Write New Chat</title>
-</head>
-<body>
-  <h2>Write new chat..</h2>
-  <form action="">
-    <input type="text" placeholder="sender" name="from">
-    <textarea name="msg">write your message here..</textarea>
-    <input type="text" placeholder="reciver" name="to">
-  </form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Write New Chat</title>
+    <style>
+      body {
+        font-family: 'poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+      }
+
+      .container {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      }
+
+      h2 {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 30px;
+      }
+
+      form {
+        margin-top: 20px;
+      }
+
+      input[type='text'],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      textarea {
+        height: 100px;
+      }
+
+      button {
+        background-color: #0066ff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #0556ad;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Write new chat..</h2>
+      <form action="">
+        <input type="text" placeholder="sender" name="from" />
+        <textarea name="msg">write your message here..</textarea>
+        <input type="text" placeholder="receiver" name="to" />
+        <button>Create Chat</button>
+      </form>
+    </div>
+  </body>
 </html>

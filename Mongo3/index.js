@@ -30,6 +30,8 @@ app.get('/chats/new', async (req, res) => {
   res.render("new.ejs");
 });
 
+// Create Route
+
 app.get('/', (req, res) => {
   res.send('working root');
 });
