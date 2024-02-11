@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WhatsApp</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h2>All Chats!</h2>
-      <form action="/chats/new" method="GET">
-        <button>New Chat</button>
-      </form>
-      <% for(let chat of chats) { %>
-      <div class="chat">
-        <p class="from">From: <%= chat.from %></p>
-        <div class="msg">
-          <p>Message: <%= chat.message %></p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp - All Chats</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h2>All Chats</h2>
+    <div class="chats">
+        <% for(let chat of chats) { %>
+        <div class="chat">
+            <p class="from">From: <%= chat.from %></p>
+            <div class="message msg">
+                <p><strong>Message:</strong> <%= chat.message %></p>
+                <form action="/chats/<%= chat._id %>/edit" method="GET">
+                    <button class="btn">Edit</button>
+                </form>
+            </div>
+            <p class="to">To: <%= chat.to %></p>
+            <hr>
+            <div class="date">
+                <p><strong>Date:</strong> <%= chat.created_at.toDateString() %></p>
+                <p><strong>Time:</strong> <%= chat.created_at.toLocaleTimeString() %></p>
+            </div>
         </div>
-        <p class="to">Received by: <%= chat.to %></p>
-        <hr />
-        <p class="to date"><%= chat.created_at.toString().split(" ").slice(0, 4).join("-") %></p>
-        <p class="to date"><%= chat.created_at.toString().split(" ")[4] %></p>
-      </div>
-      <% } %>
+        <% } %>
     </div>
-  </body>
+    <form action="/chats/new" method="GET">
+        <button>New Chat</button>
+    </form>
+</div>
+</body>
 </html>

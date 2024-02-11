@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Write New Chat</title>
+    <title>Edit Your Chat</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
       rel="stylesheet"
@@ -22,18 +22,22 @@
         padding: 20px;
         background-color: #fff;
         border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       }
 
       h2 {
         text-align: center;
-        margin-top: 10px;
-        margin-bottom: 30px;
-        color: #333;
+        margin-bottom: 20px;
       }
 
       form {
         margin-top: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 500;
       }
 
       input[type='text'],
@@ -45,7 +49,6 @@
         border-radius: 4px;
         box-sizing: border-box;
         font-family: 'Poppins', sans-serif;
-        resize: none; /* Prevent textarea resizing */
       }
 
       textarea {
@@ -64,22 +67,22 @@
       }
 
       button:hover {
-        background-color: #0056b3;
+        background-color: #0556ad;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <h2>Write New Chat</h2>
-      <form action="/chats" method="POST">
-        <input type="text" placeholder="Sender" name="from" required />
-        <textarea
-          name="message"
-          placeholder="Write your message here..."
-          required
-        ></textarea>
-        <input type="text" placeholder="Receiver" name="to" required />
-        <button>Create Chat</button>
+      <h2>Edit your chat</h2>
+      <form action="/chats/<%= chat._id %>?_method=PUT" method="POST">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message"><%= chat.message %></textarea>
+
+        <input type="hidden" name="chat_id" value="<%= chat._id %>" />
+        <input type="hidden" name="from" value="<%= chat.from %>" />
+        <input type="hidden" name="to" value="<%= chat.to %>" />
+
+        <button type="submit">Update Chat</button>
       </form>
     </div>
   </body>
