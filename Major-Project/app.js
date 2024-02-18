@@ -29,7 +29,7 @@ async function main() {
 }
 
 app.get('/', (req, res) => {
-  res.send("Hi, I'm Root..");
+  res.redirect('listings');
 });
 
 // Index Route

@@ -1,32 +1,27 @@
 <% layout('/layouts/boilerplate') %>
-<body>
-  <div class="card">
-    <div class="image-container">
-      <img src="<%= listing.image %>" alt="Image" />
-    </div>
-    <div class="details">
-      <h3>Listing Details</h3>
-      <ul>
-        <li><span class="label">Title:</span> <%= listing.title %></li>
-        <li>
-          <span class="label">Description:</span> <%= listing.description %>
-        </li>
-        <li>
-          <span class="label">Price:</span> &#8377; <%=
-          listing.price.toLocaleString("en-IN") %> /night
-        </li>
-        <li><span class="label">Location:</span> <%= listing.location %></li>
-        <li><span class="label">Country:</span> <%= listing.country %></li>
-      </ul>
-      <div class="btns">
-        <a href="/listings/<%= listing._id %>/edit">Edit this Listing</a>
-        <form
-          action="/listings/<%= listing._id %>?_method=DELETE"
-          method="POST"
-        >
-          <button>Delete this listing</button>
-        </form>
-      </div>
+<div class="card">
+  <div class="image-container">
+    <img src="<%= listing.image %>" alt="Image" />
+  </div>
+  <div class="details">
+    <h3>Listing Details</h3>
+    <ul>
+      <li><span class="label">Title:</span> <%= listing.title %></li>
+      <li>
+        <span class="label">Description:</span> <%= listing.description %>
+      </li>
+      <li>
+        <span class="label">Price:</span> &#8377; <%=
+        listing.price.toLocaleString("en-IN") %> /night
+      </li>
+      <li><span class="label">Location:</span> <%= listing.location %></li>
+      <li><span class="label">Country:</span> <%= listing.country %></li>
+    </ul>
+    <div class="btns">
+      <a href="/listings/<%= listing._id %>/edit">Edit this Listing</a>
+      <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST">
+        <button>Delete this listing</button>
+      </form>
     </div>
   </div>
-</body>
+</div>

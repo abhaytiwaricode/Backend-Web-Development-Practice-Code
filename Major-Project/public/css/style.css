@@ -11,8 +11,9 @@ body {
   flex: 1;
 }
 
-h1, h2, h3 {
-  font-weight: 600;
+h1, h2, h3, h4 {
+  font-weight: 600 !important;
+  margin-top: 1rem !important;
 }
 
 /* Navbar */ 
@@ -99,7 +100,7 @@ h1, h2, h3 {
 
 /* New Page */
 
-.add-btn {
+.add-btn, .edit-btn {
   background-color: #fe424d !important;
   border: none !important;
 }
