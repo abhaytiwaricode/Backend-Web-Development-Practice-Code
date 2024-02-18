@@ -1,27 +1,43 @@
 <% layout('/layouts/boilerplate') %>
-<div class="card">
-  <div class="image-container">
-    <img src="<%= listing.image %>" alt="Image" />
-  </div>
-  <div class="details">
-    <h3>Listing Details</h3>
-    <ul>
-      <li><span class="label">Title:</span> <%= listing.title %></li>
-      <li>
-        <span class="label">Description:</span> <%= listing.description %>
-      </li>
-      <li>
-        <span class="label">Price:</span> &#8377; <%=
-        listing.price.toLocaleString("en-IN") %> /night
-      </li>
-      <li><span class="label">Location:</span> <%= listing.location %></li>
-      <li><span class="label">Country:</span> <%= listing.country %></li>
-    </ul>
-    <div class="btns">
-      <a href="/listings/<%= listing._id %>/edit">Edit this Listing</a>
-      <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST">
-        <button>Delete this listing</button>
-      </form>
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-3">
+      <h4>Listing Details</h4>
+      <div class="card">
+        <img
+          src="<%= listing.image %>"
+          class="card-img-top show-img"
+          alt="listing_image"
+        />
+        <div class="card-body">
+          <h6 class="card-title mb-2 mt-1"><b><%= listing.title %></b></h6>
+          <ul class="list-group list-group-flush w-75 mb-4">
+            <li class="list-group-item my-list-item">
+              <span class="fw-bold">Description:</span> <%=
+              listing.description%>
+            </li>
+            <li class="list-group-item my-list-item">
+              <span class="fw-bold">Price:</span> &#8377; <%=
+              listing.price.toLocaleString("en-IN") %> /night
+            </li>
+            <li class="list-group-item my-list-item">
+              <span class="fw-bold">Location:</span> <%= listing.location %>
+            </li>
+            <li class="list-group-item my-list-item">
+              <span class="fw-bold">Country:</span> <%= listing.country %>
+            </li>
+          </ul>
+        </div>
+        <div class="d-flex gap-2 mb-3">
+          <a href="/listings/<%= listing._id %>/edit" class="btn btn-primary edit-btn">Edit</a>
+          <form
+            action="/listings/<%= listing._id %>?_method=DELETE"
+            method="POST"
+          >
+            <button type="submit" class="btn btn-dark">Delete</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </div>

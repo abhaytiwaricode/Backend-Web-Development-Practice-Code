@@ -29,7 +29,7 @@ async function main() {
 }
 
 app.get('/', (req, res) => {
-  res.redirect('listings');
+  res.send("Hi, I'm Root...");
 });
 
 // Index Route
@@ -82,16 +82,3 @@ app.delete('/listings/:id', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is listening to port: ${port}`);
 });
-
-// app.get('/testListing', async (req, res) => {
-//   let sampleListing = new Listing({
-//     title: "My Home",
-//     description: "By the beach",
-//     price: 1200,
-//     location: "Calangute Goa",
-//     country: "India",
-//   });
-//   await sampleListing.save();
-//   console.log("sample was saved");
-//   res.send("successful testing");
-// });

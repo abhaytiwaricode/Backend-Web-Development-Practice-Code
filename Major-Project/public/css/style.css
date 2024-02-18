@@ -1,6 +1,6 @@
 /* main */
 body {
-  font-family: "Plus Jakarta Sans", sans-serif !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-weight: 300;
   display: flex;
   flex-direction: column;
@@ -11,12 +11,15 @@ body {
   flex: 1;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-weight: 600 !important;
   margin-top: 1rem !important;
 }
 
-/* Navbar */ 
+/* Navbar */
 
 .navbar {
   height: 5rem;
@@ -43,7 +46,8 @@ h1, h2, h3, h4 {
   text-decoration: underline;
 }
 
-.f-info-links, .f-info-socials {
+.f-info-links,
+.f-info-socials {
   width: 100%;
 }
 
@@ -100,7 +104,16 @@ h1, h2, h3, h4 {
 
 /* New Page */
 
-.add-btn, .edit-btn {
+.add-btn,
+.edit-btn {
   background-color: #fe424d !important;
   border: none !important;
+}
+
+/* Show Page */
+
+.show-img {
+  height: 40vh !important;
+  width: 75% !important;
+  object-fit: cover !important;
 }
