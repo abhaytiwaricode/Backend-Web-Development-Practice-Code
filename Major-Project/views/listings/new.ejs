@@ -1,7 +1,7 @@
 <% layout('/layouts/boilerplate') %>
 <div class="row">
   <div class="col-8 offset-2">
-    <form action="/listings" method="POST">
+    <form action="/listings" method="POST" novalidate class="needs-validation">
       <h4>Create a New Listing</h4>
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
@@ -13,6 +13,7 @@
           placeholder="Add a catcy title"
           required
         />
+        <div class="valid-feedback">Title looks good!</div>
       </div>
 
       <div class="mb-3">
@@ -23,6 +24,7 @@
           class="form-control"
           required
         ></textarea>
+        <div class="invalid-feedback">Please enter a short description.</div>
       </div>
 
       <div class="mb-3">
@@ -33,8 +35,9 @@
           name="listing[image]"
           class="form-control"
           placeholder="enter image URL/Link"
-          required
         />
+        <div class="valid-feedback">Default image selected.</div>
+        <div class="invalid-feedback">Image URL/Link Should be valid.</div>
       </div>
 
       <div class="row">
@@ -46,8 +49,10 @@
             name="listing[price]"
             class="form-control"
             placeholder="1100"
+            min="1"
             required
           />
+          <div class="invalid-feedback">Price Should be valid.</div>
         </div>
 
         <div class="mb-3 col-md-8">
@@ -60,6 +65,7 @@
             placeholder="India"
             required
           />
+          <div class="invalid-feedback">Country name should be valid.</div>
         </div>
       </div>
 
@@ -73,6 +79,23 @@
           placeholder="Jaipur, Rajasthan"
           required
         />
+        <div class="invalid-feedback">Location should be valid.</div>
+      </div>
+
+      <div class="mb-3">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="invalidCheck"
+            required
+          />
+          <label class="form-check-label" for="invalidCheck">
+            Agree to terms and conditions
+          </label>
+          <div class="invalid-feedback">You must agree before submitting.</div>
+        </div>
       </div>
 
       <button type="submit" class="btn btn-dark add-btn mb-3">Add</button>

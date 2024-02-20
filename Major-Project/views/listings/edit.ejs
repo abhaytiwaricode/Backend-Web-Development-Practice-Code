@@ -1,7 +1,12 @@
 <% layout('/layouts/boilerplate') %>
 <div class="row">
   <div class="col-8 offset-2">
-    <form action="/listings/<%= listing._id %>?_method=PUT" method="POST">
+    <form
+      action="/listings/<%= listing._id %>?_method=PUT"
+      method="POST"
+      novalidate
+      class="needs-validation"
+    >
       <h4>Edit your Listing</h4>
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
@@ -13,6 +18,7 @@
           class="form-control"
           required
         />
+        <div class="valid-feedback">Title looks good!</div>
       </div>
 
       <div class="mb-3">
@@ -25,6 +31,7 @@
         >
         <%= listing.description %></textarea
         >
+        <div class="invalid-feedback">Please enter a short description.</div>
       </div>
 
       <div class="mb-3">
@@ -37,6 +44,7 @@
           class="form-control"
           required
         />
+        <div class="invalid-feedback">Image URL/Link Should be valid.</div>
       </div>
 
       <div class="row">
@@ -50,6 +58,7 @@
             class="form-control"
             required
           />
+          <div class="invalid-feedback">Price Should be valid.</div>
         </div>
 
         <div class="mb-3 col-md-8">
@@ -62,6 +71,7 @@
             class="form-control"
             required
           />
+          <div class="invalid-feedback">Country name Should be valid.</div>
         </div>
       </div>
 
@@ -75,6 +85,7 @@
           class="form-control"
           required
         />
+        <div class="invalid-feedback">Location Should be valid.</div>
       </div>
 
       <button type="submit" class="btn btn-dark edit-btn mb-3">Edit</button>

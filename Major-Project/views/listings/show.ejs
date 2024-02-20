@@ -29,12 +29,18 @@
           </ul>
         </div>
         <div class="d-flex gap-2 mb-3">
-          <a href="/listings/<%= listing._id %>/edit" class="btn btn-primary edit-btn">Edit</a>
+          <a
+            href="/listings/<%= listing._id %>/edit"
+            class="btn btn-primary edit-btn"
+            >Edit</a
+          >
           <form
             action="/listings/<%= listing._id %>?_method=DELETE"
             method="POST"
           >
-            <button type="submit" class="btn btn-dark">Delete</button>
+            <button type="submit" class="btn btn-dark delete-btn">
+              Delete
+            </button>
           </form>
         </div>
       </div>
