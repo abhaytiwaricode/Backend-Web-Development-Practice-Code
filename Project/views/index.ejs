@@ -1,42 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WhatsApp - All Chats</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="container">
-    <h2>All Chats</h2>
-    <div class="chats">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>All Chats</h2>
+      <div class="chats">
         <% for(let chat of chats) { %>
         <div class="chat">
-            <p class="from">From: <%= chat.from %></p>
-            <div class="message msg">
-                <p><strong>Message:</strong> <%= chat.message %></p>
-                <span>
-                    <form action="/chats/<%= chat._id %>/edit" method="GET">
-                        <button class="btn">Edit</button>
-                    </form>
-                    <form action="/chats/<%= chat._id %>?_method=DELETE" method="POST">
-                        <button class="btn">Delete</button>
-                    </form>
-                </span>
-            </div>
-            <p class="to">To: <%= chat.to %></p>
-            <hr>
-            <div class="date">
-                <p><strong>Date:</strong> <%= chat.created_at.toDateString() %></p>
-                <p><strong>Time:</strong> <%= chat.created_at.toLocaleTimeString() %></p>
-            </div>
+          <p class="from">From: <%= chat.from %></p>
+          <div class="message msg">
+            <p><strong>Message:</strong> <%= chat.message %></p>
+            <span>
+              <form action="/chats/<%= chat._id %>/edit" method="GET">
+                <button class="btn">Edit</button>
+              </form>
+              <form
+                action="/chats/<%= chat._id %>?_method=DELETE"
+                method="POST"
+              >
+                <button class="btn">Delete</button>
+              </form>
+              <form action="/chats/<%= chat._id %>" method="GET">
+                <button class="btn">Show</button>
+              </form>
+            </span>
+          </div>
+          <p class="to">To: <%= chat.to %></p>
+          <hr />
+          <div class="date">
+            <p><strong>Date:</strong> <%= chat.created_at.toDateString() %></p>
+            <p>
+              <strong>Time:</strong> <%= chat.created_at.toLocaleTimeString() %>
+            </p>
+          </div>
         </div>
         <% } %>
-    </div>
-    <form action="/chats/new" method="GET">
+      </div>
+      <form action="/chats/new" method="GET">
         <button>New Chat</button>
-    </form>
-</div>
-</body>
+      </form>
+    </div>
+  </body>
 </html>
