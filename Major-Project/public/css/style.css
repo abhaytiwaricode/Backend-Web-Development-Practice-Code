@@ -108,13 +108,17 @@ h4 {
 .edit-btn {
   background-color: #fe424d !important;
   border: none !important;
-  /* padding: 4px 10px !important;
-  text-align: center !important; */
 }
 
-/* .delete-btn {
-  padding: 4px 10px !important;
-} */
+a {
+  text-decoration: none !important;
+  color: #222222 !important;
+}
+
+a:hover {
+  cursor: pointer !important;
+  text-decoration: underline !important;
+}
 
 /* Show Page */
 
