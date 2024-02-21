@@ -110,16 +110,6 @@ h4 {
   border: none !important;
 }
 
-a {
-  text-decoration: none !important;
-  color: #222222 !important;
-}
-
-a:hover {
-  cursor: pointer !important;
-  text-decoration: underline !important;
-}
-
 /* Show Page */
 
 .show-img {
