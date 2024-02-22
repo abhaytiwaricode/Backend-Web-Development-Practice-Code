@@ -21,15 +21,15 @@ const addOrders = async () => {
       ],
     });
 
-    const Order = mongoose.model('order', orderSchema);
+    const Order = mongoose.model('Order', orderSchema);
     const Customer = mongoose.model('Customer', customerSchema);
 
     // const addCumstomer = async () => {
-    //   let cust1 = new Customer({
-    //     name: 'Abhay Tiwari',
+    //   let cust2 = new Customer({
+    //     name: 'Sandeep Mishra',
     //   });
 
-    //   let order1 = await Order.findOne({ item: 'Samosa' });
+    //   let order1 = await Order.findOne({ item: 'Chocolate' });
     //   let order2 = await Order.findOne({ item: 'Coke' });
 
     //   if (!order1 || !order2) {
@@ -37,17 +37,22 @@ const addOrders = async () => {
     //     return;
     //   }
 
-    //   cust1.orders.push(order1);
-    //   cust1.orders.push(order2);
+    //   cust2.orders.push(order1);
+    //   cust2.orders.push(order2);
 
-    // let res = await cust1.save();
-    // console.log(res);
-    
-      let result = await Customer.find();
-      console.log(result);
+    //   let res = await cust2.save();
+    //   console.log(res);
+
+    // };
+
+    // addCumstomer();
+
+    const findCumstomer = async () => {
+      let result = await Customer.find().populate('orders');
+      console.log(result[0]);
     };
 
-    addCumstomer();
+    findCumstomer();
 
     // let res = await Order.insertMany([
     //   {
