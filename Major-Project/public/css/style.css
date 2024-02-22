@@ -5,6 +5,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .container {
@@ -113,7 +114,42 @@ h4 {
 /* Show Page */
 
 .show-img {
-  height: 40vh !important;
-  width: 75% !important;
-  object-fit: cover !important;
+  height: 40vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .show-img {
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1024px) and (min-height: 1366px) {
+  .show-img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (min-width: 1025px) {
+  .show-img {
+    width: 75%;
+  }
+}
+
+/* Review */
+.rating {
+  display: inline-block;
+}
+
+.star {
+  cursor: pointer;
+  font-size: 2rem;
+  color: #ccc;
+  transition: color 0.2s;
+}
+
+.star.selected {
+  color: #ffc107;
 }
