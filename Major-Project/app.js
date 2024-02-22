@@ -3,12 +3,13 @@ const app = express();
 const port = 8080;
 const mongoose = require('mongoose');
 const path = require('path');
-const Listing = require('./models/listing');
+const Listing = require('./models/listing.js');
 const methodOverride = require('method-override');
 const engine = require('ejs-mate');
 const wrapAsync = require('./utils/wrapAsync.js');
 const ExpressError = require('./utils/ExpressError.js');
 const { listingSchema } = require('./schema');
+const Review = require('./models/review.js');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -114,6 +115,22 @@ app.delete(
     res.redirect(`/listings`);
   })
 );
+
+// Reviews
+// POST Route
+
+app.post('/listings/:id/reviews', async (req, res) => {
+  let listing = await Listing.findById(req.params.id);
+
+  let newReview = new Review(req.body.review);
+  listing.reviews.push(newReview);
+
+  await newReview.save();
+  await listing.save();
+
+  console.log('New review saved');
+  res.redirect(`/listings/${listing._id}`);
+});
 
 // Error handling middleware
 app.all('*', (req, res, next) => {

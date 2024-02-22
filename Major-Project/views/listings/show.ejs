@@ -48,7 +48,11 @@
         <div class="col-12 mb-2 ul-list">
           <hr class="ul-list" />
           <h4 class="fw-bold">Leave a Review</h4>
-          <form action="" method="POST" class="ul-list form-control">
+          <form
+            action="/listings/<%= listing.id %>/reviews"
+            method="POST"
+            class="ul-list form-control"
+          >
             <div class="mb-2 mt-0 ul-list">
               <label for="rating" class="form-label fw-bold">Rating:</label>
               <div class="rating">
