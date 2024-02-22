@@ -24,51 +24,50 @@ const addOrders = async () => {
     const Order = mongoose.model('Order', orderSchema);
     const Customer = mongoose.model('Customer', customerSchema);
 
-    // const addCumstomer = async () => {
-    //   let cust2 = new Customer({
-    //     name: 'Sandeep Mishra',
-    //   });
+    const addCustomer = async () => {
+      let cust2 = new Customer({
+        name: 'Sandeep Mishra',
+      });
 
-    //   let order1 = await Order.findOne({ item: 'Chocolate' });
-    //   let order2 = await Order.findOne({ item: 'Coke' });
+      let order1 = await Order.findOne({ item: 'Chocolate' });
+      let order2 = await Order.findOne({ item: 'Coke' });
 
-    //   if (!order1 || !order2) {
-    //     console.log('Orders not found');
-    //     return;
-    //   }
+      if (!order1 || !order2) {
+        console.log('Orders not found');
+        return;
+      }
 
-    //   cust2.orders.push(order1);
-    //   cust2.orders.push(order2);
+      cust2.orders.push(order1);
+      cust2.orders.push(order2);
 
-    //   let res = await cust2.save();
-    //   console.log(res);
+      let res = await cust2.save();
+      console.log(res);
+    };
 
-    // };
+    await addCustomer();
 
-    // addCumstomer();
-
-    const findCumstomer = async () => {
+    const findCustomer = async () => {
       let result = await Customer.find().populate('orders');
       console.log(result[0]);
     };
 
-    findCumstomer();
+    await findCustomer();
 
-    // let res = await Order.insertMany([
-    //   {
-    //     item: 'Samosa',
-    //     price: 12,
-    //   },
-    //   {
-    //     item: 'Coke',
-    //     price: 20,
-    //   },
-    //   {
-    //     item: 'Chocolate',
-    //     price: 40,
-    //   },
-    // ]);
-    // console.log(res);
+    let res = await Order.insertMany([
+      {
+        item: 'Samosa',
+        price: 12,
+      },
+      {
+        item: 'Coke',
+        price: 20,
+      },
+      {
+        item: 'Chocolate',
+        price: 40,
+      },
+    ]);
+    console.log(res);
   } catch (err) {
     console.error('Connection error:', err);
   }
