@@ -29,7 +29,9 @@ app.engine('ejs', engine);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-  res.send("Hi, I'm Root...");
+  res.send(
+    `<h2>Hii, I'm root..</h2> <h3>Click Here, for <a href='/listings'>All Listings</a></h3>`
+  );
 });
 
 app.use('/listings', listings);
