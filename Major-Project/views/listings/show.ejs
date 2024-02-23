@@ -84,16 +84,25 @@
             </button>
           </form>
           <hr />
-          <b><h4>All Reviews</h4></b>
-          <div class="row">
+          <b><h4>All Review</h4></b>
+          <div class="row row-cols-1 row-cols-md-2">
             <% for( review of listing.reviews) { %>
-            <div class="card review-card col-5 mb-3 mt-2 ms-3 border">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <h6 class="card-title fw-bold mb-0">Abhay Tiwari</h6>
+            <div class="col">
+              <div class="card review-card border">
+                <div class="card-body mt-1 ms-2">
+                  <div class="d-flex align-items-center">
+                    <h6 class="card-title fw-bold">Abhay Tiwari</h6>
+                  </div>
+                  <p class="card-text"><%= review.comment %></p>
+                  <p class="card-text"><%= review.rating %> stars</p>
+                  <form
+                    class="mb-2"
+                    method="POST"
+                    action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"
+                  >
+                    <button class="btn btn-sm btn-dark">Delete</button>
+                  </form>
                 </div>
-                <p class="card-text"><%= review.comment %></p>
-                <p class="card-text"><%= review.rating %> star</p>
               </div>
             </div>
             <% } %>

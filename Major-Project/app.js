@@ -127,7 +127,7 @@ app.delete(
 );
 
 // Reviews
-// POST Route
+// POST Review Route
 
 app.post(
   '/listings/:id/reviews',
@@ -141,10 +141,32 @@ app.post(
     await newReview.save();
     await listing.save();
 
-    console.log('New review saved');
+    //console.log('New review saved');
     res.redirect(`/listings/${listing._id}`);
   })
 );
+
+// Delete Review Route
+app.delete(
+  '/listings/:id/reviews/:reviewId',
+  wrapAsync(async (req, res, next) => {
+    const { id, reviewId } = req.params;
+    await Listing.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
+    await Review.findByIdAndDelete(reviewId);
+
+    res.redirect(`/listings/${id}`);
+  })
+);
+
+// app.delete(
+//   '/listings/:id/reviews/:reviewId',
+//   wrapAsync(async (req, res) => {
+//     let { id, reviewId } = req.params;
+//     Listing.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
+//     await Review.findByIdAndDelete(reviewId);
+//     res.redirect(`/listings/${id}`);
+//   })
+// );
 
 // Error handling middleware
 app.all('*', (req, res, next) => {
