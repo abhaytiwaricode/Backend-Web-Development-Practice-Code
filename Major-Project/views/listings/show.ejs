@@ -51,7 +51,8 @@
           <form
             action="/listings/<%= listing.id %>/reviews"
             method="POST"
-            class="ul-list form-control"
+            class="ul-list form-control needs-validation"
+            novalidate
           >
             <div class="mb-2 mt-0 ul-list">
               <label for="rating" class="form-label fw-bold">Rating:</label>
@@ -72,12 +73,31 @@
                 cols="30"
                 rows="5"
                 class="form-control"
+                required
               ></textarea>
+              <div class="invalid-feedback">
+                Please add some comment for review
+              </div>
             </div>
             <button type="submit" class="btn btn-primary add-btn mb-2">
               Submit
             </button>
           </form>
+          <hr />
+          <b><h4>All Reviews</h4></b>
+          <div class="row">
+            <% for( review of listing.reviews) { %>
+            <div class="card review-card col-5 mb-3 mt-2 ms-3 border">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-2">
+                  <h6 class="card-title fw-bold mb-0">Abhay Tiwari</h6>
+                </div>
+                <p class="card-text"><%= review.comment %></p>
+                <p class="card-text"><%= review.rating %> star</p>
+              </div>
+            </div>
+            <% } %>
+          </div>
         </div>
       </div>
     </div>
