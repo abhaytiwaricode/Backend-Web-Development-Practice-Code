@@ -4,7 +4,9 @@
     <form action="/listings" method="POST" novalidate class="needs-validation">
       <h4>Create a New Listing</h4>
       <div class="mb-3">
-        <label for="title" class="form-label">Title</label>
+        <label for="title" class="form-label"
+          >Title<span class="text-danger">*</span></label
+        >
         <input
           type="text"
           id="title"
@@ -17,7 +19,9 @@
       </div>
 
       <div class="mb-3">
-        <label for="description" class="form-label">Description</label>
+        <label for="description" class="form-label"
+          >Description <span class="text-danger">*</span></label
+        >
         <textarea
           id="description"
           name="listing[description]"
@@ -42,7 +46,9 @@
 
       <div class="row">
         <div class="mb-3 col-md-4">
-          <label for="price" class="form-label">Price</label>
+          <label for="price" class="form-label"
+            >Price<span class="text-danger">*</span></label
+          >
           <input
             type="number"
             id="price"
@@ -56,7 +62,9 @@
         </div>
 
         <div class="mb-3 col-md-8">
-          <label for="country" class="form-label">Country</label>
+          <label for="country" class="form-label"
+            >Country<span class="text-danger">*</span></label
+          >
           <input
             type="text"
             id="country"
@@ -70,32 +78,18 @@
       </div>
 
       <div class="mb-3">
-        <label for="location" class="form-label">Location</label>
+        <label for="location" class="form-label"
+          >Location<span class="text-danger">*</span></label
+        >
         <input
           type="text"
           id="location"
           name="listing[location]"
           class="form-control"
-          placeholder="Jaipur, Rajasthan"
+          placeholder="Lucknow, Uttar pradesh"
           required
         />
         <div class="invalid-feedback">Location should be valid.</div>
-      </div>
-
-      <div class="mb-3">
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            value=""
-            id="invalidCheck"
-            required
-          />
-          <label class="form-check-label" for="invalidCheck">
-            Agree to terms and conditions
-          </label>
-          <div class="invalid-feedback">You must agree before submitting.</div>
-        </div>
       </div>
 
       <button type="submit" class="btn btn-dark add-btn mb-3">Add</button>
