@@ -69,7 +69,7 @@ Wanderlust is a web application built on the MERN (MongoDB, Express.js, React.js
 
 ### Listing Route (routes/listing.js)
 
-- **User Routes: **/register, /login
+- **User Routes:**/register, /login
 - **Index Route:** GET /listings/
 - **New Route:** GET /listings/new
 - **Show Route:** GET /listings/:id
