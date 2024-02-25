@@ -1,6 +1,6 @@
 # Wanderlust Web Application
 
-Wanderlust is a web application built on the (MongoDB, Express.js, Node.js, EJS templates) that allows users to explore and book vacation rentals.
+Wanderlust is a web application built on the MERN (MongoDB, Express.js, React.js, Node.js) stack that allows users to explore and book vacation rentals.
 
 ## Installation
 
@@ -39,7 +39,7 @@ Wanderlust is a web application built on the (MongoDB, Express.js, Node.js, EJS 
 
 **Backend:** Node.js, Express.js, MongoDB
 
-**Dependencies:** mongoose, path, method-override, ejs-mate, express-session, connect-flash, Joi.
+**Dependencies:** mongoose, path, method-override, ejs-mate, express-session, connect-flash, Joi, passport, passport-local, passport-local-mongoose.
 
 ## Features
 
@@ -50,6 +50,8 @@ Wanderlust is a web application built on the (MongoDB, Express.js, Node.js, EJS 
 - Delete listings
 - Add reviews to listings
 - Flash messages for success and error notifications
+- Register
+- Login
 
 ## File Structure
 
@@ -57,6 +59,8 @@ Wanderlust is a web application built on the (MongoDB, Express.js, Node.js, EJS 
 - **utils/ExpressError.js:** Utility class for custom error handling
 - **routes/listing.js:** Route file for handling listing-related routes
 - **routes/review.js:** Route file for handling review-related routes
+- **routes/user.js:** Route file for handling user-related routes
+- **models/user.js: ** User model for MongoDB
 - **views/:** Directory containing EJS templates for rendering views
 - **public/:** Directory containing static assets like CSS and client-side JavaScript
 - **schema.js:** File containing Joi schemas for validating listing and review data
@@ -65,6 +69,7 @@ Wanderlust is a web application built on the (MongoDB, Express.js, Node.js, EJS 
 
 ### Listing Route (routes/listing.js)
 
+- **User Routes: **/register, /login
 - **Index Route:** GET /listings/
 - **New Route:** GET /listings/new
 - **Show Route:** GET /listings/:id
@@ -78,16 +83,33 @@ Wanderlust is a web application built on the (MongoDB, Express.js, Node.js, EJS 
 - **Create Review Route:** POST /listings/:id/reviews/
 - **Delete Review Route:** DELETE /listings/:id/reviews/:reviewId
 
+### Signup Route (`/signup`)
+
+- Renders a signup form (`signup.ejs`) for users to register.
+- Processes the form submission, creates a new user in the database using `User.register` method from `passport-local-mongoose`, and redirects to the listings page (`/listings`) upon successful registration.
+- If there's an error during registration, it flashes an error message and redirects back to the signup page.
+
+### Login Route (`/login`)
+
+- Renders a login form (`login.ejs`) for users to log in.
+- Processes the form submission, authenticates the user using `passport.authenticate` middleware with a local strategy, and redirects to the listings page upon successful login.
+- If authentication fails, it flashes an error message and redirects back to the login page.
+
 ## Middlewares
 
 - **validateListing:** Middleware to validate listing data using Joi schema
 - **validateReview:** Middleware to validate review data using Joi schema
 - **wrapAsync:** Utility function to handle asynchronous functions in routes
+- **session:** Middleware for session management
+- **flash:** Middleware for flash messages
+- **passport:** Middleware for user authentication
 
 ## Error Handling
 
 - Custom `ExpressError` class is used for error handling
 - Flash messages are used for notifying users about success and error messages
+- 404 error code for page not found
+- 500 error code for other server errors
 
 ## Dependencies
 
