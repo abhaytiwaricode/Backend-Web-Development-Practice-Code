@@ -14,20 +14,37 @@
     onclick="dismissAlert()"
   ></button>
 </div>
+<% } %> <% if (error && error.length) { %>
+<div
+  class="alert alert-danger alert-dismissible fade show mb-2 mt-2 mx-auto col-6"
+  role="alert"
+  id="alertMsg"
+  style="transition: opacity 0.5s"
+>
+  <%= error %>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+    onclick="dismissAlert()"
+  ></button>
+</div>
+<% } %>
+
 <script>
   setTimeout(function () {
-    var alert = document.getElementById('successAlert');
+    var alert = document.getElementById('alertMsg');
     alert.style.opacity = '0';
     setTimeout(function () {
       alert.remove();
       document.body.style.transition = 'margin-top 0.5s';
       document.body.style.marginTop = '0';
     }, 500);
-  }, 2000);
+  }, 2500);
   function dismissAlert() {
-    document.getElementById('successAlert').remove();
+    document.getElementById('alertMsg').remove();
     document.body.style.transition = 'margin-top 0.5s';
     document.body.style.marginTop = '0';
   }
 </script>
-<% } %>
