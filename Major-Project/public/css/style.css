@@ -1,6 +1,7 @@
 /* main */
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  /* font-family: 'Plus Jakarta Sans', sans-serif !important; */
+  font-family: 'Poppins', sans-serif !important;
   font-weight: 300;
   display: flex;
   flex-direction: column;
@@ -71,7 +72,7 @@ h4 {
 
 .card {
   border: none !important;
-  margin-bottom: 2rem;
+  margin-bottom: 2rem !important;
 }
 
 .card-img-top {
@@ -94,14 +95,20 @@ h4 {
 
 /* Card Effect */
 
-.card-img-overlay {
+.card-img-effect:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* .card-img-overlay {
   opacity: 0;
 }
 
 .card-img-overlay:hover {
   opacity: 0.2;
   background-color: white;
-}
+} */
 
 /* New Page */
 

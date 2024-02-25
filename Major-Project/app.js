@@ -6,6 +6,8 @@ const path = require('path');
 const methodOverride = require('method-override');
 const engine = require('ejs-mate');
 const ExpressError = require('./utils/ExpressError.js');
+const session = require('express-session');
+const flash = require('connect-flash');
 
 const listings = require('./routes/listing.js');
 const reviews = require('./routes/review.js');
@@ -28,10 +30,29 @@ app.use(methodOverride('_method'));
 app.engine('ejs', engine);
 app.use(express.static(path.join(__dirname, 'public')));
 
+const sessionOptions = {
+  secret: 'mysupersecretcode',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    httpOnly: true,
+  },
+};
+
 app.get('/', (req, res) => {
   res.send(
     `<h2>Hii, I'm root..</h2> <h3>Click Here, for <a href='/listings'>All Listings</a></h3>`
   );
+});
+
+app.use(session(sessionOptions));
+app.use(flash());
+
+app.use((req, res, next) => {
+  res.locals.success = req.flash('success');
+  next();
 });
 
 app.use('/listings', listings);

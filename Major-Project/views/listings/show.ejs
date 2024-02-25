@@ -1,112 +1,109 @@
 <% layout('/layouts/boilerplate') %>
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12">
-      <h4><%= listing.title %></h4>
-      <div class="card">
-        <div class="card-body">
-          <img
-            src="<%= listing.image %>"
-            class="card-img-top show-img img-fluid"
-            alt="listing_image"
-          />
-          <ul class="list-group list-unstyled mt-3">
-            <li>
-              <span class="fw-bold me-2">Description:</span>
-              <span><%= listing.description %></span>
-            </li>
-            <li>
-              <span class="fw-bold me-2">Price:</span>
-              <span
-                >&#8377; <%= listing.price.toLocaleString("en-IN") %>
-                /night</span
-              >
-            </li>
-            <li>
-              <span class="fw-bold me-2">Location:</span>
-              <span><%= listing.location %></span>
-            </li>
-            <li>
-              <span class="fw-bold me-2">Country:</span>
-              <span><%= listing.country %></span>
-            </li>
-          </ul>
-        </div>
-        <div class="d-flex py-4">
-          <a
-            href="/listings/<%= listing._id %>/edit"
-            class="btn btn-primary me-2 edit-btn"
-            >Edit</a
-          >
-          <form
-            action="/listings/<%= listing._id %>?_method=DELETE"
-            method="POST"
-          >
-            <button type="submit" class="btn btn-dark">Delete</button>
-          </form>
-        </div>
-        <div class="col-12 mb-2 ul-list">
-          <hr class="ul-list" />
-          <h4 class="fw-bold">Leave a Review</h4>
-          <form
-            action="/listings/<%= listing.id %>/reviews"
-            method="POST"
-            class="ul-list form-control needs-validation"
-            novalidate
-          >
-            <div class="mb-2 mt-0 ul-list">
-              <label for="rating" class="form-label fw-bold">Rating:</label>
-              <div class="rating">
-                <input type="hidden" id="rating" name="review[rating]" />
-                <span class="star" data-value="1">&#9733;</span>
-                <span class="star" data-value="2">&#9733;</span>
-                <span class="star" data-value="3">&#9733;</span>
-                <span class="star" data-value="4">&#9733;</span>
-                <span class="star" data-value="5">&#9733;</span>
-              </div>
+<div class="row">
+  <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12">
+    <h4><%= listing.title %></h4>
+    <div class="card">
+      <div class="card-body">
+        <img
+          src="<%= listing.image %>"
+          class="card-img-top show-img img-fluid"
+          alt="listing_image"
+        />
+        <ul class="list-group list-unstyled mt-3">
+          <li>
+            <span class="fw-bold me-2">Description:</span>
+            <span><%= listing.description %></span>
+          </li>
+          <li>
+            <span class="fw-bold me-2">Price:</span>
+            <span
+              >&#8377; <%= listing.price.toLocaleString("en-IN") %> /night</span
+            >
+          </li>
+          <li>
+            <span class="fw-bold me-2">Location:</span>
+            <span><%= listing.location %></span>
+          </li>
+          <li>
+            <span class="fw-bold me-2">Country:</span>
+            <span><%= listing.country %></span>
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex py-4">
+        <a
+          href="/listings/<%= listing._id %>/edit"
+          class="btn btn-primary me-2 edit-btn"
+          >Edit</a
+        >
+        <form
+          action="/listings/<%= listing._id %>?_method=DELETE"
+          method="POST"
+        >
+          <button type="submit" class="btn btn-dark">Delete</button>
+        </form>
+      </div>
+      <div class="col-12 mb-2 ul-list">
+        <hr class="ul-list" />
+        <h4 class="fw-bold">Leave a Review</h4>
+        <form
+          action="/listings/<%= listing.id %>/reviews"
+          method="POST"
+          class="ul-list form-control needs-validation"
+          novalidate
+        >
+          <div class="mb-2 mt-0 ul-list">
+            <label for="rating" class="form-label fw-bold">Rating:</label>
+            <div class="rating">
+              <input type="hidden" id="rating" name="review[rating]" />
+              <span class="star" data-value="1">&#9733;</span>
+              <span class="star" data-value="2">&#9733;</span>
+              <span class="star" data-value="3">&#9733;</span>
+              <span class="star" data-value="4">&#9733;</span>
+              <span class="star" data-value="5">&#9733;</span>
             </div>
-            <div class="mb-3">
-              <label for="comment" class="form-label fw-bold">Comments:</label>
-              <textarea
-                name="review[comment]"
-                id="comment"
-                cols="30"
-                rows="5"
-                class="form-control"
-                required
-              ></textarea>
-              <div class="invalid-feedback">
-                Please add some comment for review
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary add-btn mb-2">
-              Submit
-            </button>
-          </form>
-          <hr />
-          <b><h4>All Review</h4></b>
-          <div class="row row-cols-1 row-cols-md-2">
-            <% for( review of listing.reviews) { %>
-            <div class="col">
-              <div class="card review-card border">
-                <div class="card-body mt-1 ms-2">
-                  <div class="d-flex align-items-center">
-                    <h6 class="card-title fw-bold">Abhay Tiwari</h6>
-                  </div>
-                  <p class="card-text"><%= review.comment %></p>
-                  <p class="card-text"><%= review.rating %> stars</p>
-                  <form
-                    class="mb-2"
-                    method="POST"
-                    action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"
-                  >
-                    <button class="btn btn-sm btn-dark">Delete</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-            <% } %>
           </div>
+          <div class="mb-3">
+            <label for="comment" class="form-label fw-bold">Comments:</label>
+            <textarea
+              name="review[comment]"
+              id="comment"
+              cols="30"
+              rows="5"
+              class="form-control"
+              required
+            ></textarea>
+            <div class="invalid-feedback">
+              Please add some comment for review
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary add-btn mb-2">
+            Submit
+          </button>
+        </form>
+        <hr />
+        <b><h4>All Review</h4></b>
+        <div class="row row-cols-1 row-cols-md-2">
+          <% for( review of listing.reviews) { %>
+          <div class="col">
+            <div class="card review-card border">
+              <div class="card-body mt-1 ms-2">
+                <div class="d-flex align-items-center">
+                  <h6 class="card-title fw-bold">Abhay Tiwari</h6>
+                </div>
+                <p class="card-text"><%= review.comment %></p>
+                <p class="card-text"><%= review.rating %> stars</p>
+                <form
+                  class="mb-2"
+                  method="POST"
+                  action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"
+                >
+                  <button class="btn btn-sm btn-dark">Delete</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <% } %>
         </div>
       </div>
     </div>

@@ -1,27 +1,23 @@
 <% layout('/layouts/boilerplate') %>
-<body>
-  <div class="container">
-    <h4>All Listings</h4>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-      <% for(let listing of allListings) { %>
-      <div class="col">
-        <a href="/listings/<%= listing._id %>" class="listing-link">
-          <div class="card h-100">
-            <img
-              src="<%= listing.image %>"
-              class="card-img-top"
-              alt="listing_image"
-            />
-            <div class="card-body">
-              <p class="card-text">
-                <b><%= listing.title %></b> <br />
-                &#8377; <%= listing.price.toLocaleString("en-IN") %> /night
-              </p>
-            </div>
-          </div>
-        </a>
+<h4>All Listings</h4>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+  <% for(let listing of allListings) { %>
+  <div class="col">
+    <a href="/listings/<%= listing._id %>" class="listing-link">
+      <div class="card h-100">
+        <img
+          src="<%= listing.image %>"
+          class="card-img-top card-img-effect"
+          alt="listing_image"
+        />
+        <div class="card-body">
+          <p class="card-text">
+            <b><%= listing.title %></b> <br />
+            &#8377; <%= listing.price.toLocaleString("en-IN") %> /night
+          </p>
+        </div>
       </div>
-      <% } %>
-    </div>
+    </a>
   </div>
-</body>
+  <% } %>
+</div>
