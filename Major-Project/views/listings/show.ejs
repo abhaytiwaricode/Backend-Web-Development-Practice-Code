@@ -48,7 +48,7 @@
           <button type="submit" class="btn btn-dark">Delete</button>
         </form>
       </div>
-      <% } %>
+      <% } %> <% if(currUser) { %>
       <div class="col-12 mb-2 ul-list">
         <hr class="ul-list" />
         <h4 class="fw-bold">Leave a Review</h4>
@@ -87,31 +87,32 @@
             Submit
           </button>
         </form>
-        <hr />
-        <b><h4>All Review</h4></b>
-        <div class="row row-cols-1 row-cols-md-2">
-          <% for( review of listing.reviews) { %>
-          <div class="col">
-            <div class="card review-card border">
-              <div class="card-body mt-1 ms-2">
-                <div class="d-flex align-items-center">
-                  <h6 class="card-title fw-bold">Abhay Tiwari</h6>
-                </div>
-                <p class="card-text"><%= review.comment %></p>
-                <p class="card-text"><%= review.rating %> stars</p>
-                <form
-                  class="mb-2"
-                  method="POST"
-                  action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"
-                >
-                  <button class="btn btn-sm btn-dark">Delete</button>
-                </form>
-              </div>
+      </div>
+      <% } %>
+    </div>
+    <hr />
+    <b><h4>All Review</h4></b>
+    <div class="row row-cols-1 row-cols-md-2">
+      <% for( review of listing.reviews) { %>
+      <div class="col">
+        <div class="card review-card border">
+          <div class="card-body mt-1 ms-2">
+            <div class="d-flex align-items-center">
+              <h6 class="card-title fw-bold">Abhay Tiwari</h6>
             </div>
+            <p class="card-text"><%= review.comment %></p>
+            <p class="card-text"><%= review.rating %> stars</p>
+            <form
+              class="mb-2"
+              method="POST"
+              action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"
+            >
+              <button class="btn btn-sm btn-dark">Delete</button>
+            </form>
           </div>
-          <% } %>
         </div>
       </div>
+      <% } %>
     </div>
   </div>
 </div>
