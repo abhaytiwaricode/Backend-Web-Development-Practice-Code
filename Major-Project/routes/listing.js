@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const wrapAsync = require('../utils/wrapAsync.js');
-const listingController = require('../controllers/listings.js');
+const wrapAsync = require('../utils/wrapAsync');
+const listingController = require('../controllers/listings');
 
 const {
   isLoggedIn,
   isOwner,
   validateListing,
   validateReview,
-} = require('../middleware.js');
+} = require('../middleware');
 
 // Index Route
 router.get('/', wrapAsync(listingController.index));
