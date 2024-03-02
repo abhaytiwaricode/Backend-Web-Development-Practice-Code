@@ -34,7 +34,7 @@
           </li>
         </ul>
       </div>
-      <% if(currUser && currUser._id.equals(listing.owner)) { %>
+      <% if(currUser && currUser._id.equals(listing.owner._id)) { %>
       <div class="d-flex py-4">
         <a
           href="/listings/<%= listing._id %>/edit"
