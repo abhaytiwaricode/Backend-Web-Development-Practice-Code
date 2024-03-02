@@ -28,8 +28,13 @@
             <span class="fw-bold me-2">Country:</span>
             <span><%= listing.country %></span>
           </li>
+          <li>
+            <span class="fw-bold me-2">Owned by:</span>
+            <span><%= listing.owner.username %></span>
+          </li>
         </ul>
       </div>
+      <% if(currUser && currUser._id.equals(listing.owner)) { %>
       <div class="d-flex py-4">
         <a
           href="/listings/<%= listing._id %>/edit"
@@ -43,6 +48,7 @@
           <button type="submit" class="btn btn-dark">Delete</button>
         </form>
       </div>
+      <% } %>
       <div class="col-12 mb-2 ul-list">
         <hr class="ul-list" />
         <h4 class="fw-bold">Leave a Review</h4>
