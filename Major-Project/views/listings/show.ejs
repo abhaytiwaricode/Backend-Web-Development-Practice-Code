@@ -58,18 +58,56 @@
           class="ul-list w-75 needs-validation"
           novalidate
         >
-          <div class="mb-2 mt-0 ul-list">
-            <label for="rating" class="form-label fw-bold">Rating:</label>
-            <div class="rating">
-              <input type="hidden" id="rating" name="review[rating]" />
-              <span class="star" data-value="1">&#9733;</span>
-              <span class="star" data-value="2">&#9733;</span>
-              <span class="star" data-value="3">&#9733;</span>
-              <span class="star" data-value="4">&#9733;</span>
-              <span class="star" data-value="5">&#9733;</span>
-            </div>
+          <div class="mb-3 mt-3">
+            <fieldset class="starability-slot">
+              <p for="rating" class="form-label fw-bold">Rating:</p>
+              <input
+                type="radio"
+                id="no-rate"
+                class="input-no-rate"
+                name="review[rating]"
+                value="1"
+                checked
+                aria-label="No rating."
+              />
+              <input
+                type="radio"
+                id="first-rate1"
+                name="review[rating]"
+                value="1"
+              />
+              <label for="first-rate1" title="Terrible">1 star</label>
+              <input
+                type="radio"
+                id="first-rate2"
+                name="review[rating]"
+                value="2"
+              />
+              <label for="first-rate2" title="Not good">2 stars</label>
+              <input
+                type="radio"
+                id="first-rate3"
+                name="review[rating]"
+                value="3"
+              />
+              <label for="first-rate3" title="Average">3 stars</label>
+              <input
+                type="radio"
+                id="first-rate4"
+                name="review[rating]"
+                value="4"
+              />
+              <label for="first-rate4" title="Very good">4 stars</label>
+              <input
+                type="radio"
+                id="first-rate5"
+                name="review[rating]"
+                value="5"
+              />
+              <label for="first-rate5" title="Amazing">5 stars</label>
+            </fieldset>
           </div>
-          <div class="mb-3">
+          <div class="mb-3 mt-2">
             <label for="comment" class="form-label fw-bold">Comments:</label>
             <textarea
               name="review[comment]"
@@ -100,8 +138,12 @@
             <div class="d-flex align-items-center">
               <h6 class="card-title fw-bold">@<%= review.author.username %></h6>
             </div>
+            <p
+              class="starability-result card-text"
+              data-rating="<%= review.rating %>"
+            ></p>
             <p class="card-text"><%= review.comment %></p>
-            <p class="card-text"><%= review.rating %> stars</p>
+
             <form
               class="mb-2"
               method="POST"
