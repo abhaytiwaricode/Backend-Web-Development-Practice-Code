@@ -78,7 +78,9 @@ h4 {
 .card-img-top {
   border-radius: 1rem !important;
   width: 100% !important;
-  object-fit: cover !important;
+  max-width: 100% !important;
+  height: 16rem !important;
+  /* object-fit: cover !important; */
 }
 
 .card-body {
