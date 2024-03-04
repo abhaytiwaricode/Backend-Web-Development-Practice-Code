@@ -50,9 +50,7 @@ const sessionOptions = {
 };
 
 app.get('/', (req, res) => {
-  res.send(
-    `<h2>Hii, I'm root..</h2> <h3>Click Here, for <a href='/listings'>All Listings</a></h3>`
-  );
+  res.redirect('/listings');
 });
 
 app.use(session(sessionOptions));

@@ -1,4 +1,9 @@
 /* main */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 body {
   /* font-family: 'Plus Jakarta Sans', sans-serif !important; */
   font-family: 'Poppins', sans-serif !important;
@@ -33,6 +38,12 @@ h4 {
   font-size: 2rem;
 }
 
+.logo-txt {
+  color: #fe424d !important;
+  font-weight: bold !important;
+  font-size: 1.3rem !important;
+}
+
 .nav-link {
   color: #222222 !important;
 }
@@ -42,6 +53,14 @@ h4 {
 .f-info-links a {
   text-decoration: none;
   color: #222222;
+}
+
+.footer-links a {
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
 }
 
 .f-info-links a:hover {
@@ -161,4 +180,97 @@ h4 {
 
 .star.selected {
   color: #ffc107;
+}
+
+/* Index Page */
+
+#filters-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 1rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#filters {
+  display: flex;
+  align-items: center;
+}
+.filter {
+  text-align: center;
+  margin-right: 2rem;
+  margin-top: 2rem;
+  opacity: 0.7;
+}
+.filter:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.filter p {
+  font-size: 0.8rem;
+}
+.tax-info {
+  display: none;
+  font-size: 0.9rem;
+}
+.tax-toggle {
+  /* border: 1px solid rgb(143, 143, 143); */
+  border-radius: 1rem;
+  height: 3rem;
+  padding: 1rem;
+  margin-left: 3rem;
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+@media (max-width: 767.98px) {
+  /* Extra small devices (phones) */
+  #filters-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .filter {
+    margin-right: 1rem;
+  }
+  .tax-toggle {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  #filters-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-left: 1.3rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .filter {
+    margin-right: 1rem;
+  }
+  .tax-toggle {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) and (max-device-width: 1024px) {
+  .tax-toggle {
+    display: inline;
+  }
+}
+
+@media (min-width: 1024px) and (min-height: 1036px) {
+  #filters-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-left: 4.5rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .tax-toggle {
+    display: none;
+  }
 }
